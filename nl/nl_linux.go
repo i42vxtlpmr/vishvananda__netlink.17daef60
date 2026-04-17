@@ -696,11 +696,11 @@ type NetlinkSocket struct {
 }
 
 func getNetlinkSocket(protocol int) (*NetlinkSocket, error) {
-	fd, err := unix.Socket(unix.AF_NETLINK, unix.SOCK_RAW, protocol)
+	fd, err := unix.Socket(unix.AF_NETLINK, unix.SOCK_RAW|unix.SOCK_CLOEXEC, protocol)
 	if err != nil {
 		return nil, err
 	}
-	err = unix.SetNonblock(fd, false)
+	err = unix.SetNonblock(fd, true)
 	if err != nil {
 		return nil, err
 	}
@@ -710,6 +710,7 @@ func getNetlinkSocket(protocol int) (*NetlinkSocket, error) {
 	}
 	s.lsa.Family = unix.AF_NETLINK
 	if err := unix.Bind(fd, &s.lsa); err != nil {
+		unix.Close(fd)
 		return nil, err
 	}
 
